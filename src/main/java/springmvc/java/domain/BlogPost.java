@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="blog_post")
 public class BlogPost {
@@ -32,6 +34,7 @@ public class BlogPost {
 	@Column(name="draft", nullable=false)
 	private boolean draft;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable=false)
 	private User user;
